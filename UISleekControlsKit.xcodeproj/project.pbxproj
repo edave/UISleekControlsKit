@@ -16,6 +16,10 @@
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* UISleekControlsKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISleekControlsKit_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE5144F0132156AC002F0501 /* right-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-tab.png"; sourceTree = "<group>"; };
+		AE5144F1132156AC002F0501 /* right-tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-tab@2x.png"; sourceTree = "<group>"; };
+		AE51453B13215BF2002F0501 /* left-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-tab.png"; sourceTree = "<group>"; };
+		AE51453C13215BF2002F0501 /* left-tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-tab@2x.png"; sourceTree = "<group>"; };
 		AE8911C213205D1000DA8604 /* UIIncrementerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIncrementerControl.h; sourceTree = "<group>"; };
 		AE8911C313205D1000DA8604 /* UIIncrementerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIIncrementerControl.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libUISleekControlsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUISleekControlsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +48,7 @@
 		0867D691FE84028FC02AAC07 /* UISleekControlsKit */ = {
 			isa = PBXGroup;
 			children = (
+				AE5144D713215699002F0501 /* Resources */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -75,6 +80,17 @@
 				AA747D9E0F9514B9006C5449 /* UISleekControlsKit_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		AE5144D713215699002F0501 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AE51453B13215BF2002F0501 /* left-tab.png */,
+				AE51453C13215BF2002F0501 /* left-tab@2x.png */,
+				AE5144F0132156AC002F0501 /* right-tab.png */,
+				AE5144F1132156AC002F0501 /* right-tab@2x.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

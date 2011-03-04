@@ -12,9 +12,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UIIncrementerControlDelegate
+@optional
+
+-(void) incrementerValueChanged:(id)sender;
+
+@end
 
 @interface UIIncrementerControl : UIControl<UITextFieldDelegate> {
-	NSObject<UITextFieldDelegate>* _delegate;
+	NSObject<UITextFieldDelegate, UIIncrementerControlDelegate>* _delegate;
 	
 	NSNumber* _value;
 	NSNumber* _defaultValue;
@@ -30,7 +36,7 @@
 }
 
 // Delegate for receiving TextField Events
-@property(nonatomic, retain) NSObject<UITextFieldDelegate>* delegate;
+@property(nonatomic, retain) NSObject<UITextFieldDelegate, UIIncrementerControlDelegate>* delegate;
 
 // Value of the Incrementer
 @property(nonatomic, retain) NSNumber* value;

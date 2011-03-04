@@ -24,20 +24,33 @@
     if (self) {
 		
 		// Increment Button
-        _incrementButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _incrementButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[_incrementButton setTitle:@"+" forState:UIControlStateNormal];
 		[_incrementButton addTarget:self action:@selector(incrementEvent:) forControlEvents:UIControlEventTouchUpInside];
 		
+		UIImage* incrementImage = [UIImage imageNamed:@"right-tab.png"];
+		[_incrementButton setBackgroundImage:[incrementImage stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateNormal];
+		[_incrementButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+		[_incrementButton setTitleShadowColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+		
 		// Decrement Button
-		_decrementButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[_decrementButton setTitle:@"-" forState:UIControlStateNormal];
+		_decrementButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		[_decrementButton setTitle:@"—" forState:UIControlStateNormal];
 		[_decrementButton addTarget:self action:@selector(decrementEvent:) forControlEvents:UIControlEventTouchUpInside];
+		[_decrementButton setTitleShadowColor:[UIColor darkTextColor] forState:UIControlStateNormal];
+		  
+		 
+		UIImage* decrementImage = [UIImage imageNamed:@"left-tab.png"];
+		[_decrementButton setBackgroundImage:[decrementImage stretchableImageWithLeftCapWidth:10 topCapHeight:0] forState:UIControlStateNormal];
+		[_decrementButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+		
 		
 		// TextField
 		_textField = [[UITextField alloc] init];
 		_textField.delegate = self;
 		_textField.text = [NSString stringWithFormat:@"%@", self.defaultValue];
-		_textField.borderStyle = UITextBorderStyleRoundedRect;
+		_textField.borderStyle = UITextBorderStyleBezel;
+		_textField.backgroundColor = [UIColor whiteColor];
 		_textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		//_textField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 		_textField.textAlignment = UITextAlignmentRight;
@@ -65,7 +78,7 @@
 -(void)layoutSubviews{
 	[super layoutSubviews];
 	CGRect decrementFrame = _decrementButton.frame;
-	CGSize buttonSize = CGSizeMake(32,32);
+	CGSize buttonSize = CGSizeMake(32,40);
 	decrementFrame.size = buttonSize;
 	decrementFrame.origin = CGPointMake(0,0);
 	_decrementButton.frame = decrementFrame;
@@ -73,13 +86,13 @@
 	
 	CGRect textFrame = _textField.frame;
 	textFrame.size = buttonSize;
-	textFrame.origin = CGPointMake(CGRectGetMaxX(decrementFrame), 0);
+	textFrame.origin = CGPointMake(CGRectGetMaxX(decrementFrame)-2.0, 0);
 	_textField.frame = textFrame;
 	
 	
 	CGRect incrementFrame = _incrementButton.frame;
 	incrementFrame.size = buttonSize;
-	incrementFrame.origin = CGPointMake(CGRectGetMaxX(textFrame),0);
+	incrementFrame.origin = CGPointMake(CGRectGetMaxX(textFrame)-2.0,0);
 	_incrementButton.frame = incrementFrame;
 
 }
@@ -111,6 +124,9 @@
 	_value = finalValue;
 	[_value retain];
 	_textField.text = [self.value stringValue];
+	if(self.delegate != nil){
+		[self.delegate incrementerValueChanged:self];
+	}
 }
 
 #pragma mark -
