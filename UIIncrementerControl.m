@@ -22,12 +22,6 @@
     CGRect myFrame = CGRectMake(frame.origin.x, frame.origin.y, 200, 30);
     self = [super initWithFrame:myFrame];
     if (self) {
-		// Set Default Values
-		self.defaultValue = [NSNumber numberWithInt:1];
-		self.value = self.defaultValue;
-		self.incrementAmount = [NSNumber numberWithInt:1];
-		self.minValue = [NSNumber numberWithInt:0];
-		self.maxValue = [NSNumber numberWithInt:10];
 		
 		// Increment Button
         _incrementButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -56,6 +50,14 @@
 		
 		_numberFormatter = [[NSNumberFormatter alloc] init];
 		[_numberFormatter setNumberStyle:NSNumberFormatterNoStyle];
+		
+		// Set Default Values
+		self.defaultValue = [NSNumber numberWithInt:1];
+		self.incrementAmount = [NSNumber numberWithInt:1];
+		self.minValue = [NSNumber numberWithInt:0];
+		self.maxValue = [NSNumber numberWithInt:10];
+		self.value = self.defaultValue;
+		
     }
     return self;
 }
@@ -88,7 +90,6 @@
 }
 
 -(void)setValue:(NSNumber*)newValue{
-	NSLog(@"New Value: %@", newValue);
 	if(newValue == nil){
 		return;	
 	}
